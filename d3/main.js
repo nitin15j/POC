@@ -14,7 +14,7 @@ var circle = svg
   .style("fill", "purple");
 */
 
-/*
+/* reading data from array and creating circles
 var labels = ["Bangalore", "New Delhi", "Chennai", "Pune"];
 
 d3
@@ -46,7 +46,8 @@ var circles = svg
   .attr("fill", "grey");
 */
 
-/*var rectWidth = [50, 100, 150];
+/* creating bars with labels on top if each rect bar
+var rectWidth = [50, 100, 150];
 
 var svg = d3
   .select("#chart-area")
