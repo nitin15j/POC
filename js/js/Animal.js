@@ -9,3 +9,7 @@ function Animal(name) {
 Animal.prototype.getType = function() {
   console.log("Type Of Animal");
 };
+
+function Dog() {}
+
+Dog.prototype = new Animal();
