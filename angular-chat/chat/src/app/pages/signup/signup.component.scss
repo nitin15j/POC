@@ -1,0 +1,17 @@
+@import "../../../styles/variables";
+
+.container {
+  height: 100vh;
+}
+
+h2 {
+  color: $secondary;
+}
+
+.first-name {
+  margin-right: 0.5em;
+}
+
+.last-name {
+  margin-left: 0.5em;
+}

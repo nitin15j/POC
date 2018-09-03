@@ -1,0 +1,15 @@
+<article class="card" (click)="showDetails(movie)">
+  <div>
+    <div class="card-rating">
+      {{movie.rating}}
+    </div>
+    <div class="card-header">
+      <span class="card-title">{{movie.movie_title}}</span>
+    </div>
+    <div class="card-content">
+
+      <h2>Director : {{movie.director_name}}</h2>
+      <p> Actor :{{movie.actor_1_name}}, {{movie.actor_2_name}}</p>
+    </div>
+  </div>
+</article>

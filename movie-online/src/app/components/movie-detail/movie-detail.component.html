@@ -1,0 +1,27 @@
+<div class="modal" [ngClass]="isWindowOpen ? 'is-active' : ''">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{data?.movie_title}}</p>
+      <button class="delete" aria-label="close" (click)="hideDetail()"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="modal-content">
+        <!-- Any other Bulma elements you want -->
+        <ul>
+          <li> Director - {{data?.director_name}}</li>
+          <li> Actor 1 - {{data?.actor_1_name}}</li>
+          <li> Actor 2 - {{data?.actor_2_name}}</li>
+          <li> Genres - {{data?.genres}}</li>
+          <li> Language - {{data?.language}}</li>
+          <li> Country - {{data?.country}}</li>
+          <li> Content Rating - {{data?.content_rating}}</li>
+          <li> Budget - {{data?.budget}}</li>
+          <li> Title Year - {{data?.title_year}}</li>
+          <li> Plot Keywords - {{data?.plot_keywords}}</li>
+          <li> Imdb Link- {{data?.movie_imdb_link}}</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>

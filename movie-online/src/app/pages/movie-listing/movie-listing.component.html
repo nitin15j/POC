@@ -1,0 +1,50 @@
+<nav class="navbar nav-bar-header is-fixed-top">
+  <div class="navbar-brand">
+    <h1 class="is-size-3">Movie Online</h1>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div>
+          <div class="control has-icons-left">
+            <input class="input is-rounded" type="text" placeholder="Search" (keyup)="onKeyUp($event.target.value)">
+            <span class="icon is-small is-left">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="select">
+            <select (change)="onCountryChange($event.target.value)">
+              <option>Select Country</option>
+              <option *ngFor="let country of movieCountry"> {{country}}</option>
+            </select>
+          </div>
+          <div class="select">
+            <select (change)="onLanguageChange($event.target.value)">
+              <option>Select Language</option>
+              <option *ngFor="let language of movieLanguages" (click)="onLanguageChange(language)"> {{language}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<main class="main-area">
+  <div class="centered">
+    <section class="cards">
+      <app-moviecard *ngFor="let movie of movieList | filterBySearch:searchText | filterByCountry:selectedCountry | filterByLanguage:selectedLanguage"
+        [movie]="movie" (click)="showDetails(movie)"></app-moviecard>
+    </section>
+  </div>
+</main>
+
+
+<app-movie-detail [data]=" selectedMovieDetails " [isActive]="isModalActive "></app-movie-detail>
