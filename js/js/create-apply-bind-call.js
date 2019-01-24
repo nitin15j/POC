@@ -4,7 +4,7 @@
 3. constructor function     -> var obj = new Humman()
 4. Object.create api -> var obj = Object.create(prototypeObject, propertyObject), in this api, it will
 return new object with its prototype pointing towards the first argument
-5. we majorly use this api to create inheritance in JS, this is Douglus crockford suggest way  
+5. we majorly use this api to create inheritance in JS, this is Douglus crockford suggested way  
 */
 
 function Human(firstName, lastName) {

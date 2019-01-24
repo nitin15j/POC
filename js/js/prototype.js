@@ -36,11 +36,11 @@ function Human(firstName, lastName) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.age = 30;
-
-  this.getFullName = function() {
-    return this.firstName + " " + this.lastName;
-  };
 }
+
+Human.prototype.getFullName = function() {
+  return this.firstName + " " + this.lastName;
+};
 
 var sachin = new Human("Sachin", "Tendulkar");
 var dhoni = new Human("Mahendra", "Dhoni");
