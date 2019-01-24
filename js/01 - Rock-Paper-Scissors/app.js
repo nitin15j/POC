@@ -7,7 +7,7 @@ let computerSelectedChoice;
 const userScore_span = document.getElementById("userScore");
 const computerScore_span = document.getElementById("computerScore");
 const scoreBoard_div = document.querySelector(".score-board");
-const result_div = document.querySelector(".result");
+const result_div = document.querySelector(".result > h2");
 const rock_span = document.getElementById("r");
 const paper_span = document.getElementById("p");
 const scissors_span = document.getElementById("s");
@@ -16,6 +16,7 @@ rock_span.addEventListener("click", function() {
   userSelectedChoice = "r";
   gameLogic();
 });
+
 paper_span.addEventListener("click", function() {
   userSelectedChoice = "p";
   gameLogic();
@@ -23,6 +24,18 @@ paper_span.addEventListener("click", function() {
 scissors_span.addEventListener("click", function() {
   userSelectedChoice = "s";
   gameLogic();
+});
+
+rock_span.addEventListener("transitionend", function() {
+  document.getElementById(userSelectedChoice).classList.remove("green-glow");
+});
+
+paper_span.addEventListener("transitionend", function() {
+  document.getElementById(userSelectedChoice).classList.remove("green-glow");
+});
+
+scissors_span.addEventListener("transitionend", function() {
+  document.getElementById(userSelectedChoice).classList.remove("green-glow");
 });
 
 function selectComputerChoice() {
@@ -47,6 +60,15 @@ function gameLogic() {
       console.log(`user wins ${combinedSelection}`);
       userScore++;
       userScore_span.innerHTML = userScore;
+      result_div.innerHTML = `${convertToWord(
+        userSelectedChoice
+      )} beats ${convertToWord(computerSelectedChoice)}, You Win!`;
+      document.getElementById(userSelectedChoice).classList.add("green-glow");
+      //   setTimeout(function() {
+      //     document
+      //       .getElementById(userSelectedChoice)
+      //       .classList.remove("green-glow");
+      //   }, 200);
       break;
 
     case "rp":
@@ -55,6 +77,17 @@ function gameLogic() {
       console.log(`user lost ${combinedSelection}`);
       computerScore++;
       computerScore_span.innerHTML = computerScore;
+
+      result_div.innerHTML = `${convertToWord(
+        userSelectedChoice
+      )} lost to  ${convertToWord(computerSelectedChoice)}, You Loose`;
+      document.getElementById(userSelectedChoice).classList.add("red-glow");
+      setTimeout(function() {
+        document
+          .getElementById(userSelectedChoice)
+          .classList.remove("red-glow");
+      }, 200);
+
       break;
 
     case "rr":
@@ -62,5 +95,11 @@ function gameLogic() {
     case "ss":
       console.log(`Draw ${combinedSelection}`);
       break;
+  }
+
+  function convertToWord(choice) {
+    if (choice === "r") return "Rock";
+    if (choice === "p") return "Paper";
+    return "Scissors";
   }
 }
