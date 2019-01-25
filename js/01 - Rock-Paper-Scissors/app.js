@@ -93,7 +93,15 @@ function gameLogic() {
     case "rr":
     case "pp":
     case "ss":
-      console.log(`Draw ${combinedSelection}`);
+      result_div.innerHTML = `${convertToWord(
+        userSelectedChoice
+      )} equal's to  ${convertToWord(computerSelectedChoice)}, It's Draw`;
+      document.getElementById(userSelectedChoice).classList.add("gray-glow");
+      setTimeout(function() {
+        document
+          .getElementById(userSelectedChoice)
+          .classList.remove("gray-glow");
+      }, 200);
       break;
   }
 
